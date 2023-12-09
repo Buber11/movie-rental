@@ -1,2 +1,0 @@
-# movie-rental
-pwr project
