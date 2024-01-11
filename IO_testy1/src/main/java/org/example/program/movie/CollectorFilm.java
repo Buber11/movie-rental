@@ -1,4 +1,5 @@
 package org.example.program.movie;
+
 public class CollectorFilm extends Film {
 	/**
 	 *
