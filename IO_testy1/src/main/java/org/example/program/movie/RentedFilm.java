@@ -35,8 +35,7 @@ public class RentedFilm {
 		this.film = film;
 	}
 	public Client getCustomer() {
-// TODO - implement RentedFilm.getCustomer
-		throw new UnsupportedOperationException();
+		return this.client;
 	}
 	/**
 	 *

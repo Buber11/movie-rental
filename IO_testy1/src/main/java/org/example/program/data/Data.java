@@ -15,4 +15,16 @@ public class Data {
 	public static Data INSTANCE = new Data();
 	private Data() {
 	}
+
+	public List<RentedFilm> getRentedFilms() {
+		return rentedFilms;
+	}
+
+	public List<Film> getFilms() {
+		return films;
+	}
+
+	public static Data getINSTANCE() {
+		return INSTANCE;
+	}
 }
