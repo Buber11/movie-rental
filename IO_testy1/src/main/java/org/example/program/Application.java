@@ -74,22 +74,31 @@ public class Application {
 	 *
 	 * @param
 	 */
-	public void addMovie() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("podaj tytuł filmu");
+	public void addMovie(Scanner scanner) {
+
+		System.out.println("Podaj tytuł filmu:");
 		String title = scanner.nextLine();
-		System.out.println("podaj rok wydania");
-		int releaseYear = scanner.nextInt();
-		System.out.println("podaj gatunek filmu");
-		String genre = scanner.next();
-		System.out.println("""
-czy jest to film kolekcjonerski?
-jeśli tak wcisnij 1,
-jeśli nie wciśnij 2
-""");
-		int answear = scanner.nextInt();
+
+		System.out.println("Podaj rok wydania:");
+		int releaseYear = 0;
+		try {
+			releaseYear = Integer.parseInt(scanner.nextLine());
+		} catch (NumberFormatException e) {
+			throw new NumberFormatException("Podano nieprawidłowy rok wydania.");
+		}
+
+		System.out.println("Podaj gatunek filmu:");
+		String genre = scanner.nextLine();
+
+		System.out.println("Czy film jest kolekcjonerski? (1 - Tak, 0 - Nie):");
+		int choice = 0;
+		try {
+			choice = Integer.parseInt(scanner.nextLine());
+		} catch (NumberFormatException e) {
+			throw new NumberFormatException("Podano nieprawidłową opcję.");
+		}
 		Film film;
-		if (answear == 1){
+		if (choice == 1){
 			film = new CollectorFilm(title,releaseYear,true,genre);
 		}
 		else{
@@ -101,8 +110,7 @@ jeśli nie wciśnij 2
 	 *
 	 * @param
 	 */
-	public void deleteMovie() {
-		Scanner scanner = new Scanner(System.in);
+	public void deleteMovie(Scanner scanner) {
 		System.out.println("podaj tytuł filmu");
 		String title = scanner.nextLine();
 		System.out.println("podaj rok wydania");
@@ -152,10 +160,10 @@ kliknij:
 		String genre = scanner.nextLine();
 		searchRented(title,releaseYear,genre);
 		if(choice == 1){
-			addMovie();
+			addMovie(scanner);
 		}
 		if (choice == 2){
-			deleteMovie();
+			deleteMovie(scanner);
 		}
 	}
 	public void menuCustomerRentedFilmManagement() {

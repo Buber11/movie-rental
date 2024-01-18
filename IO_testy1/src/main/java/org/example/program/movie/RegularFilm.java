@@ -16,7 +16,7 @@ public class RegularFilm extends Film {
 	 * @param days
 	 */
 	public int calculateRentalFee(int days) {
-// TODO - implement RegularFilm.calculateRentalFee
-		throw new UnsupportedOperationException();
+		return days * this.getRate();
 	}
+
 }
